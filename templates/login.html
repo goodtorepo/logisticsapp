@@ -1,0 +1,23 @@
+<!-- templates/login.html -->
+{% extends "base.html" %}
+{% block content %}
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+<p>Don't have an account? <a href="/register">Register here</a></p>
+<p><a href="{{ url_for('track') }}">Track Your Shipment</a></p>
+{% endblock %}

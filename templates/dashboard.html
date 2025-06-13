@@ -1,0 +1,30 @@
+<!-- templates/dashboard.html -->
+{% extends "base.html" %}
+{% block content %}
+    <h2>Welcome to the Dashboard</h2>
+    <p><a href="/upload">Upload New Shipment</a> | <a href="/logout">Logout</a></p>
+
+    <h3>All Shipments</h3>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>ID</th>
+            <th>Tracking Number</th>
+            <th>Status</th>
+            <th>Document</th>
+        </tr>
+        {% for shipment in shipments %}
+        <tr>
+            <td>{{ shipment.id }}</td>
+            <td>{{ shipment.tracking_number }}</td>
+            <td>{{ shipment.status }}</td>
+            <td>
+                {% if shipment.uploaded_document %}
+                    <a href="{{ shipment.uploaded_document }}">View</a>
+                {% else %}
+                    No Document
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

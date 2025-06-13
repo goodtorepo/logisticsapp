@@ -1,0 +1,25 @@
+<!-- templates/upload.html -->
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Shipment - Databridge Portal</title>
+</head>
+<body>
+    <h2>Upload New Shipment</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label>Tracking Number:</label><br>
+        <input type="text" name="tracking_number" required><br><br>
+
+        <label>Status:</label><br>
+        <input type="text" name="status" required><br><br>
+
+        <label>Upload Document (PDF or Image):</label><br>
+        <input type="file" name="document"><br><br>
+
+        <input type="submit" value="Upload Shipment">
+    </form>
+    <p><a href="/dashboard">Back to Dashboard</a></p>
+{% endblock %}

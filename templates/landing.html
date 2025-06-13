@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="text-center">
+    	<img src="{{ url_for('static', filename='logo.png') }}" class="img-fluid my-4" alt="Logo" style="max-height: 150px;">
+   	 <h1 class="mb-4">Welcome to Databridge Logistics Management Portal</h1>
+   	 <p class="lead">Track, manage, and secure your shipments with confidence.</p>
+   	<a class="btn btn-primary btn-lg mt-3" href="{{ url_for('login') }}">Login to portal</a>
+	</div>
+{% endblock %}
